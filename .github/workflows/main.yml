@@ -45,15 +45,10 @@ jobs:
     - name: Compile and Simulate with Verilator
       run: |
         # Step 1: Compile the Verilog files with Verilator
-        verilator --cc --sv code.sv --exe --build tb_code.cpp --trace
+        verilator --cc --sv code.sv --exe --build tb_code.cpp
 
-        # Step 2: Run the compiled simulation
+        # Step 2: Run the compiled simulation and display output in logs
         ./obj_dir/Vcode
-    
+
     - name: List obj_dir Contents
       run: ls -la ${{ github.workspace }}/obj_dir
-
-
-
-
-
