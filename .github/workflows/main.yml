@@ -47,4 +47,10 @@ jobs:
 
         # Step 2: Run the compiled simulation
         ./obj_dir/Vcode
-#.
+    - name: Upload VCD Waveform
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+       name: waveform
+       path: obj_dir/waveform.vcd
+
