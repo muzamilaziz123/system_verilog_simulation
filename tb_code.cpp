@@ -1,4 +1,4 @@
-#include "Vfifo.h"        // Include the Verilog module's C++ header
+#include "Vcode.h"        // Include the Verilog module's C++ header
 #include "verilated.h"    // Include Verilator header
 #include "verilated_vcd_c.h"  // Include Verilator VCD header for waveform dumping
 
