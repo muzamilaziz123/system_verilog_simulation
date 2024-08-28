@@ -41,7 +41,7 @@ jobs:
     - name: Run Verilator Simulation
       run: |
         # Step 1: Compile the Verilog files with Verilator
-        verilator --cc code.sv --exe --build tb_code.cpp
+        verilator --cc --sv code.sv --exe --build tb_code.cpp --trace
 
         # Step 2: Run the compiled simulation
         ./obj_dir/Vcode
