@@ -4,7 +4,7 @@
 
 int main(int argc, char **argv) {
     Verilated::commandArgs(argc, argv);  // Initialize Verilator
-    Vcode* dut = new Vfifo;  // Instantiate the DUT (Device Under Test)
+    Vcode* dut = new Vcode;  // Instantiate the DUT (Device Under Test)
 
     // Trace dump for waveform generation
     VerilatedVcdC* tfp = new VerilatedVcdC;
