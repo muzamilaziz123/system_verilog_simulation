@@ -51,4 +51,4 @@ jobs:
         ./obj_dir/Vcode
 
     - name: List obj_dir Contents
-      run: ls -la ${{ github.workspace }}/obj_dir
+      run: ./Vcode
