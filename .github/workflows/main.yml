@@ -18,7 +18,7 @@ jobs:
           /usr/bin/verilator
           /usr/local/bin
           /usr/local/lib
-        key: ${{ runner.os }}-verilator-${{ hashFiles('**/install_verilator.sh') }}
+        key: ${{ runner.os }}-verilator1-${{ hashFiles('**/install_verilator.sh') }}
         restore-keys: |
           ${{ runner.os }}-verilator-
 
