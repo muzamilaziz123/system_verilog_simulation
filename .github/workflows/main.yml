@@ -1,0 +1,48 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Set up cache for Verilator
+      id: cache-verilator
+      uses: actions/cache@v3
+      with:
+        path: |
+          /usr/bin/verilator
+          /usr/local/bin
+          /usr/local/lib
+        key: ${{ runner.os }}-verilator-${{ hashFiles('**/install_verilator.sh') }}
+        restore-keys: |
+          ${{ runner.os }}-verilator-
+
+    - name: Verify Cache
+      run: |
+        echo "Checking cached files..."
+        ls -la /usr/bin | grep verilator || true
+        ls -la /usr/local/bin || true
+        ls -la /usr/local/lib || true
+
+    - name: Install Verilator if not cached
+      if: steps.cache-verilator.outputs.cache-hit != 'true'
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y verilator g++ make yosys
+        # You might want to move Verilator to /usr/bin if it’s not there by default
+
+    - name: Lint Verilog Files
+      run: verilator --lint-only code.sv  
+    - name: Run Verilator Simulation
+      run: |
+        # Step 1: Compile the Verilog files with Verilator
+        verilator --cc code.sv --exe --build tb_code.cpp
+
+        # Step 2: Run the compiled simulation
+        ./obj_dir/Vcode
+        #
