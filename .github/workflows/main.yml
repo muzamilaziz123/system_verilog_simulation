@@ -50,10 +50,9 @@ jobs:
         # Step 2: Run the compiled simulation
         ./obj_dir/Vcode
     
-    - name: Verify Cache
-      run: |
-        ls -la /home/runner/work/system_verilog_simulation/system_verilog_simulation/obj_dir
-        grep cir_fifo_wave.vcd
+    - name: List obj_dir Contents
+      run: ls -la ${{ github.workspace }}/obj_dir
+
 
 
 
