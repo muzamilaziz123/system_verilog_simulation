@@ -15,6 +15,7 @@ jobs:
       uses: actions/cache@v3
       with:
         path: |
+          /home/verilator
           /usr/bin/verilator
           /usr/local/bin
           /usr/local/lib
@@ -26,6 +27,7 @@ jobs:
       run: |
         echo "Checking cached files..."
         ls -la /usr/bin | grep verilator || true
+        ls -la /home/verilator || true
         ls -la /usr/local/bin || true
         ls -la /usr/local/lib || true
 
@@ -51,3 +53,8 @@ jobs:
     - name: Verify Cache
       run: |
         ls -la /home/runner/work/system_verilog_simulation/system_verilog_simulation/obj_dir
+        grep cir_fifo_wave.vcd
+
+
+
+
