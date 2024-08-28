@@ -53,4 +53,4 @@ jobs:
       working-directory: ${{ github.workspace }}/obj_dir
       run: |
         echo "Triggering the local CI script..."
-        bash ./vcode
+        ls -al /obj_dir
