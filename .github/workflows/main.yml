@@ -49,4 +49,6 @@ jobs:
 
         # Step 2: Run the compiled simulation and display output in logs
         ./obj_dir/Vcode
-    
+    - name: obj_dir details
+      run: |
+        ls -al /home/runner/work/system_verilog_simulation/system_verilog_simulation/obj_dir
