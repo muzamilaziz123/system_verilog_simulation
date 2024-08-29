@@ -10,7 +10,7 @@ int main(int argc, char **argv) {
     VerilatedVcdC* tfp = new VerilatedVcdC;
     Verilated::traceEverOn(true);
     dut->trace(tfp, 99);
-    tfp->open("cir_fifo_wave.vcd");
+    tfp->open("obj_dir/cir_fifo_wave.vcd");
 
     // Initialize inputs
     dut->clk = 0;
