@@ -40,12 +40,12 @@ jobs:
        # sudo cp /usr/local/bin/verilator* /usr/bin/ || true
 
     - name: Lint Verilog/SystemVerilog Files
-      run: verilator --lint-only fifo.v
+      run: verilator --lint-only code.sv
       
     - name: Compile and Simulate with Verilator
       run: |
         # Step 1: Compile the Verilog files with Verilator
-        verilator --cc  fifo.v --exe --build tb_code.cpp --trace
+        verilator --cc code.sv --exe --build tb_code.cpp --trace
 
         # Step 2: Run the compiled simulation and display output in logs
         ./obj_dir/Vcode
