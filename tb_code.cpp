@@ -20,7 +20,7 @@ int main(int argc, char **argv) {
     dut->data_in = 0;
 
     // Clock generation
-    int clk_period = 10;  // Clock period in time steps
+    int clk_period = 100;  // Clock period in time steps
     int sim_time = 0;     // Simulation time tracker
 
     // Reset DUT
