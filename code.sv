@@ -43,6 +43,7 @@ module fifo
             default: data_out = '0; // Default case added for completeness
         endcase
     end
+
    
     always_comb begin
         case (wr_ptr)
