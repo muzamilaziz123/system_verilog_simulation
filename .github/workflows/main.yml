@@ -36,6 +36,7 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y verilator g++ make yosys
+        sudo apt-get install -y gtkwave
         # Move Verilator to /usr/bin if it's not there by default
        # sudo cp /usr/local/bin/verilator* /usr/bin/ || true
 
@@ -52,3 +53,7 @@ jobs:
     - name: obj_dir details
       run: |
         ls -al /home/runner/work/system_verilog_simulation/system_verilog_simulation/obj_dir
+
+    - name: Open GTKWave
+      run: |
+        gtkwave /home/runner/work/system_verilog_simulation/system_verilog_simulation/obj_dir/cir_fifo_wave.vcd 
