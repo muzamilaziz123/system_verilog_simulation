@@ -41,6 +41,7 @@ always@(*) begin
       4'd1 : data_out = register2;
       4'd2 : data_out = register3;
       4'd3 : data_out = register4;
+      default: data_out = data_out;
   endcase
 end
 
@@ -50,6 +51,7 @@ always@(*) begin
       4'd1 : {d_mux_out1,d_mux_out2,d_mux_out3,d_mux_out4} = {1'd0,push, 2'd0  };
       4'd2 : {d_mux_out1,d_mux_out2,d_mux_out3,d_mux_out4} = {2'd0,push, 1'd0  };
       4'd3 : {d_mux_out1,d_mux_out2,d_mux_out3,d_mux_out4} = {3'd0,push        };
+      default : {d_mux_out1,d_mux_out2,d_mux_out3,d_mux_out4} = {4'd0};
   endcase
 end
 
