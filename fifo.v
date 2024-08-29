@@ -37,19 +37,19 @@ wire                    clr_rd;
 
 always@(*) begin
   case(rd_ptr)
-      2'd0 : data_out = register1;
-      2'd1 : data_out = register2;
-      2'd2 : data_out = register3;
-      2'd3 : data_out = register4;
+      4'd0 : data_out = register1;
+      4'd1 : data_out = register2;
+      4'd2 : data_out = register3;
+      4'd3 : data_out = register4;
   endcase
 end
 
 always@(*) begin
   case(wr_ptr)
-      2'd0 : {d_mux_out1,d_mux_out2,d_mux_out3,d_mux_out4} = {push, 3'd0       };
-      2'd1 : {d_mux_out1,d_mux_out2,d_mux_out3,d_mux_out4} = {1'd0,push, 2'd0  };
-      2'd2 : {d_mux_out1,d_mux_out2,d_mux_out3,d_mux_out4} = {2'd0,push, 1'd0  };
-      2'd3 : {d_mux_out1,d_mux_out2,d_mux_out3,d_mux_out4} = {3'd0,push        };
+      4'd0 : {d_mux_out1,d_mux_out2,d_mux_out3,d_mux_out4} = {push, 3'd0       };
+      4'd1 : {d_mux_out1,d_mux_out2,d_mux_out3,d_mux_out4} = {1'd0,push, 2'd0  };
+      4'd2 : {d_mux_out1,d_mux_out2,d_mux_out3,d_mux_out4} = {2'd0,push, 1'd0  };
+      4'd3 : {d_mux_out1,d_mux_out2,d_mux_out3,d_mux_out4} = {3'd0,push        };
   endcase
 end
 
