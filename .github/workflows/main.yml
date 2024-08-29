@@ -2,16 +2,11 @@ name: CI
 
 on: [push, pull_request]
 
-
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Code
-      uses: actions/checkout@v3
-
-   steps:
     - name: Checkout Code
       uses: actions/checkout@v3
 
@@ -25,8 +20,7 @@ jobs:
           /usr/local/lib
         key: ${{ runner.os }}-verilator-${{ hashFiles('**/install_verilator.sh') }}
         restore-keys: |
-          ${{ runner.os }}-verilator-
-          
+          ${{ runner.os }}-verilator-          
     - name: Verify Cache
       run: |
         echo "Checking cached files..."
