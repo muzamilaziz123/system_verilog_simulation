@@ -54,6 +54,8 @@ jobs:
       run: |
         ls -al /home/runner/work/system_verilog_simulation/system_verilog_simulation/obj_dir
 
-    - name: Open GTKWave
-      run: |
-        gtkwave /home/runner/work/system_verilog_simulation/system_verilog_simulation/obj_dir/cir_fifo_wave.vcd 
+    - name: Upload VCD file as an artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: cir_fifo_wave_vcd
+        path: /home/runner/work/system_verilog_simulation/system_verilog_simulation/obj_dir/cir_fifo_wave.vcd
