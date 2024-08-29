@@ -21,7 +21,7 @@ jobs:
           /usr/local/lib
         key: ${{ runner.os }}-verilator-${{ github.sha }}-${{ runner.job }}
         restore-keys: |
-          ${{ runner.os }}-verilator-
+          ${{ runner.os }}-verilator-${{ github.sha }}
 
     - name: Verify Cache
       run: |
