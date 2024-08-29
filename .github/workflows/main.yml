@@ -49,8 +49,4 @@ jobs:
 
         # Step 2: Run the compiled simulation and display output in logs
         ./obj_dir/Vcode
-    - name: Trigger Local Script
-      working-directory: ${{ github.workspace }}/obj_dir
-      run: |
-        echo "Triggering the local CI script..."
-        ls -al /obj_dir
+    
