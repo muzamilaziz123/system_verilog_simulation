@@ -11,19 +11,22 @@ jobs:
     - name: Checkout Code
       uses: actions/checkout@v3
 
+   steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
     - name: Set up cache for Verilator
-      id: cache-verilator1
+      id: cache-verilator
       uses: actions/cache@v3
       with:
         path: |
-          
           /usr/bin/verilator
           /usr/local/bin
           /usr/local/lib
-        key: ${{ runner.os }}-verilator-${{hashFiles('**/install_verilator.sh') }}
+        key: ${{ runner.os }}-verilator-${{ hashFiles('**/install_verilator.sh') }}
         restore-keys: |
           ${{ runner.os }}-verilator-
-
+          
     - name: Verify Cache
       run: |
         echo "Checking cached files..."
