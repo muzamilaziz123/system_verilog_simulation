@@ -19,15 +19,14 @@ jobs:
           /usr/bin/verilator
           /usr/local/bin
           /usr/local/lib
-        key: ${{ runner.os }}-verilator1-${{ hashFiles('**/install_verilator.sh') }}
+        key: ${{ runner.os }}-verilator-${{ github.sha }}-${{ runner.job }}
         restore-keys: |
-          ${{ runner.os }}-verilator1-
+          ${{ runner.os }}-verilator-
 
     - name: Verify Cache
       run: |
         echo "Checking cached files..."
         ls -la /usr/bin | grep verilator || true
-        ls -la /home/verilator || true
         ls -la /usr/local/bin || true
         ls -la /usr/local/lib || true
 
